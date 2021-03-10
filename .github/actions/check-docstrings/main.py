@@ -128,6 +128,7 @@ class CheckDocstrings:
     """
     query_url = f"https://api.github.com/repos/{user_name}/pulls/{pull_number}/comments"
     commit_id = self.get_branch_commit_sha()
+    position = 60
     data = {
         "body": body,
         'position': int(position),
@@ -154,7 +155,7 @@ class CheckDocstrings:
         lineno_ = int(lst[1])
         code_ = lst[2]
         desc_ = lst[3]
-        desc_ = f'{self.label} \n {code_} {desc_} \n {self.help_link} \n {lineno_}'
+        desc_ = f'{self.label} \n {code_} {desc_} \n {self.help_link}'
         self.post_create_review_comment(self.user_name, self.pr_number, desc_, path_, lineno_)
 
   def get_params_from_pylint_stdout(self, splt):
