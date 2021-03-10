@@ -135,7 +135,7 @@ class CheckDocstrings:
         'commit_id': commit_id
     }
     _r = requests.post(query_url, headers=self.header, data=json.dumps(data))
-#     pprint(_r.json())
+    print(_r.json(), data)
   
   def create_review_comments(self, report_dct_):
     """
