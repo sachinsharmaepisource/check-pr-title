@@ -1,6 +1,6 @@
 """
 Check the pull request title format
-If correct then mask as success
+If correct then mask as success,
 else create issue comment ans mark as failed.
 """
 import os
