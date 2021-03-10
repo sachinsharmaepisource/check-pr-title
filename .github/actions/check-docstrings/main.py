@@ -128,7 +128,6 @@ class CheckDocstrings:
     """
     query_url = f"https://api.github.com/repos/{user_name}/pulls/{pull_number}/comments"
     commit_id = self.get_branch_commit_sha()
-    position = 1
     data = {
         "body": body,
         'position': int(position),
