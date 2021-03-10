@@ -47,10 +47,6 @@ class PullRequestTitleCheck:
   def check_pull_request_title(self):
     """
 
-      Returns
-      -------
-        Bool : Bool
-          Is the first word of pr_title, among the category list format.
     """
     splt = self.pr_title.split(':')
     if len(splt) > 1:
