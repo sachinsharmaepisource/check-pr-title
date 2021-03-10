@@ -1,3 +1,8 @@
+"""
+Check the pull request title format
+If correct then mask as success,
+else create issue comment ans mark as failed.
+"""
 import os
 # import sys
 from github import Github
@@ -41,10 +46,7 @@ class PullRequestTitleCheck:
 
   def check_pull_request_title(self):
     """
-      Prameters
-      ---------
-            pr_title : String
-              Pull request title
+
       Returns
       -------
         Bool : Bool
