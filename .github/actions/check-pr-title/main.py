@@ -46,7 +46,10 @@ class PullRequestTitleCheck:
 
   def check_pull_request_title(self):
     """
-
+      Returns
+      -------
+        Bool : Bool
+          Is the first word of pr_title, among the category list format.
     """
     splt = self.pr_title.split(':')
     if len(splt) > 1:
@@ -56,10 +59,7 @@ class PullRequestTitleCheck:
   
   def get_inputs(self, input_name):
     """
-      Parameters
-      ----------
-          input_name : String
-            Input title
+
       Logic
       ----------
           Extract the inputs from the YML file of GITHUB ACTION
