@@ -157,6 +157,26 @@ class CheckDocstrings:
         desc_ = f'{self.label} \n {code_} {desc_} \n {self.help_link}'
         self.post_create_review_comment(self.user_name, self.pr_number, desc_, path_, lineno_)
 
+  def get_type(self, splt):
+    """
+      Parameters
+      ----------
+          splt : list
+            Split list
+      Logic
+      ----------
+          Format the type_ parameter
+      Returns
+      -------
+        String : String
+          type_
+    """
+    type_ = "DEFAULT_TYPE"
+    for cat in self.report_dct:
+        if cat[0].strip().lower() == splt[3].strip()[0].lower():
+          type_ = cat
+    return type_
+
   def get_params_from_pylint_stdout(self, splt):
     """
       Parameters
@@ -179,9 +199,7 @@ class CheckDocstrings:
     if len(splt) == 5:
       path_ = splt[0].strip()
       lineno_ = splt[1].strip()
-      for cat in self.report_dct:
-        if cat[0].strip().lower() == splt[3].strip()[0].lower():
-          type_ = cat
+      type_ = self.get_type(splt)
       code_ = splt[3].strip()
       desc_ = splt[4].strip()
     return path_, lineno_, type_, code_, desc_
