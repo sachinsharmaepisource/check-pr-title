@@ -217,6 +217,7 @@ class CheckDocstrings:
           execute lint on all the files and then call create review comment on the current pull request.
     """
     for file_path in file_paths:
+      print(file_path)
       args = ["-r","n", "--rcfile=.github/actions/check-docstrings/.pylintrc"]
       pylint_output = WritableObject()
       Run([file_path]+args, reporter=TextReporter(pylint_output), exit=False)
