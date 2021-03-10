@@ -18,7 +18,7 @@ class IncorrectTitleFormatError(Exception):
         self.message = message
         super().__init__(self.message)
         
-#--------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------
 
 class PullRequestTitleCheck:
   """
@@ -86,7 +86,7 @@ class PullRequestTitleCheck:
     issue_comments = self._pr.get_issue_comments()
     for comment in issue_comments:
       body = comment.body
-      splt = body.splt('\n', 1)
+      splt = body.split('\n', 1)
       if len(splt) == 2 and splt[0] == self.label and comment.user.type == 'Bot':
         comment.delete()
 
