@@ -130,7 +130,7 @@ class CheckDocstrings:
     commit_id = self.get_branch_commit_sha()
     data = {
         "body": body,
-        'position': position,
+        'position': int(position),
         'path': file_path,
         'commit_id': commit_id
     }
